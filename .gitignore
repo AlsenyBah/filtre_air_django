@@ -1,0 +1,20 @@
+# Environnement virtuel
+venv/
+env/
+
+# Base de données locale
+db.sqlite3
+
+# Fichiers compilés Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Logs et fichiers temporaires
+*.log
+*.tmp
+
+# Fichiers créés par l’éditeur
+.vscode/
+.idea/

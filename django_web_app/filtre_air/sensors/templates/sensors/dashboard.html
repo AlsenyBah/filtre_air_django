@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Filtre à Air - Dashboard</title>
+    <style>
+        /* body { font-family: Arial; background: #f3f4f6; display: flex; justify-content: center; align-items: center; height: 100vh; } */
+        /* .card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 300px; text-align: center; } */
+        h2 { margin-bottom: 20px; }
+        .data { font-size: 20px; margin: 10px 0; }
+        .timestamp { margin-top: 15px; color: gray; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Filtre à Air</h2>
+        <div class="data">Température : <span id="temperature">--</span> °C</div>
+        <div class="data">Humidité : <span id="humidity">--</span> %</div>
+        <div class="data">Qualité de l'air : <span id="air_quality">--</span></div>
+        <div class="timestamp">Mise à jour : <span id="timestamp">--</span></div>
+    </div>
+
+    <script>
+        async function fetchData() {
+            const response = await fetch("/get-data/");
+            const data = await response.json();
+            document.getElementById("temperature").innerText = data.temperature;
+            document.getElementById("humidity").innerText = data.humidity;
+            document.getElementById("air_quality").innerText = data.air_quality;
+            document.getElementById("timestamp").innerText = data.timestamp;
+        }
+        setInterval(fetchData, 2000);
+        fetchData();
+    </script>
+</body>
+</html>
