@@ -1,5 +1,8 @@
 from django.db import models
 import random
+from django.core.validators import MinValueValidator, MaxValueValidator
+import uuid
+
 
 class SensorData(models.Model):
     temperature = models.FloatField()
@@ -65,10 +68,10 @@ class ExempleModele(models.Model):
     identifiant_uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
 
     # --- Champs fichiers et binaires ---
-    donnees_binaires = models.BinaryField(null=True, blank=True)
-    fichier = models.FileField(upload_to="uploads/fichiers/", null=True, blank=True)
-    image = models.ImageField(upload_to="uploads/images/", null=True, blank=True)
-    chemin_fichier = models.FilePathField(path="/tmp", null=True, blank=True)
+    # donnees_binaires = models.BinaryField(null=True, blank=True)
+    # fichier = models.FileField(upload_to="uploads/fichiers/", null=True, blank=True)
+    # image = models.ImageField(upload_to="uploads/images/", null=True, blank=True)
+    # chemin_fichier = models.FilePathField(path="/tmp", null=True, blank=True)
 
     # --- Champs date et temps ---
     date_simple = models.DateField(
